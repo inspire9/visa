@@ -4,8 +4,8 @@ Gem::Specification.new do |spec|
   spec.version       = '0.0.1'
   spec.authors       = ['Pat Allan']
   spec.email         = ['pat@freelancing-gods.com']
-  spec.summary       = %q{Multi-token authentication for Ruby/Rails apps.}
-  spec.description   = %q{Multi-token authentication for Ruby/Rails apps, with tokens changing on each request.}
+  spec.summary       = %q{Multi-token authentication for Rails apps.}
+  spec.description   = %q{Multi-token authentication for Rails apps, with tokens changing on each request.}
   spec.homepage      = ''
   spec.license       = 'MIT'
 
