@@ -28,4 +28,4 @@ Inspiration has come from [Lynn Dylan Hurley](https://github.com/lynndylanhurley
 
 ## Licence
 
-Copyright (c) 2014, Sliver is developed and maintained by Pat Allan and Inspire9, and is released under the open MIT Licence.
+Copyright (c) 2015, Ephemera is developed and maintained by Pat Allan and Inspire9, and is released under the open MIT Licence.
