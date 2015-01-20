@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Request integration', type: :request do
-  let(:token) { Ephemera::Token.create tokenable: User.create }
+  let(:token) { Visa::Token.create tokenable: User.create }
 
   it 'accepts valid tokens' do
     get '/', access_token: "#{token.client_id}#{token.secret}"

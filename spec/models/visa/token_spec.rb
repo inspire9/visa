@@ -1,22 +1,22 @@
 require 'spec_helper'
 
-RSpec.describe Ephemera::Token, type: :model do
-  let(:token) { Ephemera::Token.create tokenable: User.create }
+RSpec.describe Visa::Token, type: :model do
+  let(:token) { Visa::Token.create tokenable: User.create }
 
   describe '.find_by_credentials' do
     it 'returns the matching token' do
-      existing_token = Ephemera::Token.find_by_credentials token.client_id,
+      existing_token = Visa::Token.find_by_credentials token.client_id,
         token.secret
       expect(existing_token).to eq(token)
     end
 
     it 'returns nil when the client id is wrong' do
-      existing_token = Ephemera::Token.find_by_credentials 'foo', token.secret
+      existing_token = Visa::Token.find_by_credentials 'foo', token.secret
       expect(existing_token).to be_nil
     end
 
     it 'returns nil when the secret is wrong' do
-      existing_token = Ephemera::Token.find_by_credentials token.client_id,
+      existing_token = Visa::Token.find_by_credentials token.client_id,
         'foo'
       expect(existing_token).to be_nil
     end
@@ -34,7 +34,7 @@ RSpec.describe Ephemera::Token, type: :model do
     end
 
     it 'is not persisted' do
-      existing_token = Ephemera::Token.find token.id
+      existing_token = Visa::Token.find token.id
       expect(existing_token.secret).to be_nil
     end
   end

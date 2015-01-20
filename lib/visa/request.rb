@@ -1,4 +1,4 @@
-class Ephemera::Request
+class Visa::Request
   delegate :tokenable, to: :token
 
   def initialize(environment)
@@ -19,14 +19,14 @@ class Ephemera::Request
 
   def credentials
     string = request.params['access_token'] ||
-      request.headers[Ephemera.request_header]
+      request.headers[Visa.request_header]
 
     [string[0..15], string[16..57]]
   end
 
   def not_too_old?
     time = token.last_requested_at
-    time.nil? || (time > Ephemera.timeout.ago)
+    time.nil? || (time > Visa.timeout.ago)
   end
 
   def request
@@ -34,6 +34,6 @@ class Ephemera::Request
   end
 
   def token
-    @token ||= Ephemera::Token.find_by_credentials *credentials
+    @token ||= Visa::Token.find_by_credentials *credentials
   end
 end

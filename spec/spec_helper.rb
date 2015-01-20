@@ -4,13 +4,13 @@ Bundler.setup :default, :development
 
 require 'rails'
 require 'combustion'
-require 'ephemera'
+require 'visa'
 
 Combustion.initialize! :active_record
 
 require 'rspec/rails'
 
-Ephemera.encryption_cost = 1
+Visa.encryption_cost = 1
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true

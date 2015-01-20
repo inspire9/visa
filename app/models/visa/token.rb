@@ -1,5 +1,5 @@
-class Ephemera::Token < ActiveRecord::Base
-  self.table_name = 'ephemera_tokens'
+class Visa::Token < ActiveRecord::Base
+  self.table_name = 'visa_tokens'
 
   belongs_to :tokenable, polymorphic: true
 
@@ -24,7 +24,7 @@ class Ephemera::Token < ActiveRecord::Base
   private
 
   def encryption_cost
-    Ephemera.encryption_cost || 10
+    Visa.encryption_cost || 10
   end
 
   def set_client_id

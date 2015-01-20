@@ -1,6 +1,6 @@
 # coding: utf-8
 Gem::Specification.new do |spec|
-  spec.name          = 'ephemera'
+  spec.name          = 'visa'
   spec.version       = '0.0.1'
   spec.authors       = ['Pat Allan']
   spec.email         = ['pat@freelancing-gods.com']
