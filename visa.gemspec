@@ -5,8 +5,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Pat Allan']
   spec.email         = ['pat@freelancing-gods.com']
   spec.summary       = %q{Multi-token authentication for Rails apps.}
-  spec.description   = %q{Multi-token authentication for Rails apps, with tokens changing on each request.}
-  spec.homepage      = ''
+  spec.description   = %q{Multi-token authentication Rails engine.}
+  spec.homepage      = 'https://github.com/inspire9/visa'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")

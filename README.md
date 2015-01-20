@@ -1,6 +1,6 @@
 # Visa
 
-Multi-token authentication for Rails apps, with tokens changing on each request. Built with Devise in mind, but can be used separately.
+Multi-token authentication for Rails apps. Built with Devise in mind, but can be used separately.
 
 ## Installation
 
