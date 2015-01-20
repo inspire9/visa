@@ -22,4 +22,12 @@ RSpec.describe 'Request integration', type: :request do
 
     expect(response.status).to eq(401)
   end
+
+  it 'updates the last_requested_at column' do
+    get '/', access_token: "#{token.client_id}#{token.secret}"
+
+    token.reload
+
+    expect(token.last_requested_at).to_not be_nil
+  end
 end

@@ -5,6 +5,10 @@ class Ephemera::Request
     @environment = environment
   end
 
+  def touch
+    token.touch :last_requested_at
+  end
+
   def valid?
     token.present? && not_too_old?
   end

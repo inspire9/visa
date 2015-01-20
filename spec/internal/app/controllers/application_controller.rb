@@ -2,9 +2,11 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    return if user_signed_in?
-
-    render text: 'Unauthorised', status: 401
+    if user_signed_in?
+      ephemera_request.touch
+    else
+      render text: 'Unauthorised', status: 401
+    end
   end
 
   def current_user
