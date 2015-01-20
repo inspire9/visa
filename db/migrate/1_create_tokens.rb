@@ -1,10 +1,12 @@
 class CreateTokens < ActiveRecord::Migration
   def change
     create_table :ephemera_tokens do |t|
-      t.string  :tokenable_type,   null: false
-      t.integer :tokenable_id,     null: false
-      t.string  :client_id,        null: false
-      t.string  :encrypted_secret, null: false
+      t.string   :tokenable_type,   null: false
+      t.integer  :tokenable_id,     null: false
+      t.string   :client_id,        null: false
+      t.string   :encrypted_secret, null: false
+      t.datetime :last_requested_at
+      t.timestamps null: false
     end
 
     add_index :ephemera_tokens, [:tokenable_type, :tokenable_id]
