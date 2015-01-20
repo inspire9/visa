@@ -25,8 +25,8 @@ class Visa::Request
   end
 
   def not_too_old?
-    time = token.last_requested_at
-    time.nil? || (time > Visa.timeout.ago)
+    time = token.last_requested_at || token.created_at
+    time > Visa.timeout.ago
   end
 
   def request

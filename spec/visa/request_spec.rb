@@ -22,13 +22,22 @@ access_token=1234567890123456789012345678901234567890123456789012345678
     end
 
     it 'returns true when a matching token is found' do
-      allow(Visa::Token).to receive(:find_by_credentials).
-        and_return(double('token', last_requested_at: nil))
+      allow(Visa::Token).to receive(:find_by_credentials).and_return(
+        double('token', last_requested_at: nil, created_at: 1.minute.ago)
+      )
 
       expect(request).to be_valid
     end
 
-    it 'returns true when a matching token is less than two weeks old' do
+    it 'returns true when an unused token is less than two weeks old' do
+      allow(Visa::Token).to receive(:find_by_credentials).and_return(
+        double('token', last_requested_at: nil, created_at: 13.days.ago)
+      )
+
+      expect(request).to be_valid
+    end
+
+    it 'returns true when a matching token has been used within two weeks' do
       allow(Visa::Token).to receive(:find_by_credentials).
         and_return(double('token', last_requested_at: 13.days.ago))
 
@@ -42,7 +51,15 @@ access_token=1234567890123456789012345678901234567890123456789012345678
       expect(request).to_not be_valid
     end
 
-    it 'returns false when a matching token is more than two weeks old' do
+    it 'returns false when an unused token is more than two weeks old' do
+      allow(Visa::Token).to receive(:find_by_credentials).and_return(
+        double('token', last_requested_at: nil, created_at: 15.days.ago)
+      )
+
+      expect(request).to_not be_valid
+    end
+
+    it 'returns false when token has not been used in  more than two weeks' do
       allow(Visa::Token).to receive(:find_by_credentials).
         and_return(double('token', last_requested_at: 15.days.ago))
 
