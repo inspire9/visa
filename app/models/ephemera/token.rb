@@ -28,11 +28,11 @@ class Ephemera::Token < ActiveRecord::Base
   end
 
   def set_client_id
-    self.client_id = SecureRandom.hex 16
+    self.client_id = SecureRandom.hex 8
   end
 
   def set_secret
-    @secret               = SecureRandom.urlsafe_base64 32
+    @secret               = SecureRandom.urlsafe_base64 31
     self.encrypted_secret = BCrypt::Password.create @secret,
       cost: encryption_cost
   end
