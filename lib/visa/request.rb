@@ -19,7 +19,7 @@ class Visa::Request
 
   def credentials
     string = request.params['access_token'] ||
-      request.headers[Visa.request_header]
+      environment[Visa.request_header] || ''
 
     [string[0..15], string[16..57]]
   end
