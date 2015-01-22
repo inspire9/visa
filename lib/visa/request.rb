@@ -5,12 +5,16 @@ class Visa::Request
     @environment = environment
   end
 
+  def invalidate
+    token.touch :voided_at
+  end
+
   def touch
     token.touch :last_requested_at
   end
 
   def valid?
-    token.present? && not_too_old?
+    token.present? && token.voided_at.nil? && not_too_old?
   end
 
   private
