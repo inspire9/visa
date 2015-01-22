@@ -7,7 +7,7 @@ Multi-token authentication for Rails apps. Built with Devise in mind, but can be
 Something like the following should go in your Gemfile:
 
 ```ruby
-gem 'visa', '~> 0.0.1'
+gem 'visa', '~> 0.0.2'
 ```
 
 ## Usage
