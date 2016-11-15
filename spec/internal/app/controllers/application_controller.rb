@@ -5,12 +5,20 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       visa_request.touch
     else
-      render text: 'Unauthorised', status: 401
+      render_plain_text 'Unauthorised', status: 401
     end
   end
 
   def current_user
     visa_request.tokenable
+  end
+
+  def render_plain_text(text, options = {})
+    if Rails::VERSION::MAJOR == 4
+      render options.merge(text: text)
+    else
+      render options.merge(plain: text)
+    end
   end
 
   def visa_request

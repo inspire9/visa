@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
-    render text: 'OK'
+    render_plain_text 'OK'
   end
 end
