@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency     'bcrypt'
   spec.add_runtime_dependency     'rack'
-  spec.add_runtime_dependency     'rails', '~> 4.0'
+  spec.add_runtime_dependency     'rails', '~> 4'
 
   spec.add_development_dependency 'combustion',  '0.5.1'
   spec.add_development_dependency 'rspec-rails', '~> 3.1'
