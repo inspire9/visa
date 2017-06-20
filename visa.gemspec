@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency     'rack'
   spec.add_runtime_dependency     'rails', '>= 4.0'
 
-  spec.add_development_dependency 'appraisal',   '~> 2.1.0'
-  spec.add_development_dependency 'combustion',  '0.5.5'
+  spec.add_development_dependency 'appraisal',   '~> 2.2.0'
+  spec.add_development_dependency 'combustion',  '0.7.0'
   spec.add_development_dependency 'rspec-rails', '~> 3.1'
   spec.add_development_dependency 'sqlite3',     '~> 1.3'
 end
