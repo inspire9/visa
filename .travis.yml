@@ -7,5 +7,6 @@ rvm:
 before_install:
   - gem install bundler
 before_script:
+  - ./bin/literals
   - bundle exec appraisal update
 script: bundle exec appraisal rspec
