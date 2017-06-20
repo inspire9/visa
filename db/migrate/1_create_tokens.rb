@@ -1,4 +1,6 @@
-class CreateTokens < ActiveRecord::Migration
+superclass = ActiveRecord::VERSION::MAJOR < 5 ?
+  ActiveRecord::Migration : ActiveRecord::Migration[4.2]
+class CreateTokens < superclass
   def change
     create_table :visa_tokens do |t|
       t.string   :tokenable_type,   null: false
